@@ -1,4 +1,4 @@
-setInterval(function () {
+function updateTIme() {
   // Los Angeles
   let losAngelesElement = document.querySelector("#los-angeles");
   if (losAngelesElement) {
@@ -37,7 +37,7 @@ setInterval(function () {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-}, 1000);
+}
 
 // Drop down
 function updateCity(event) {
