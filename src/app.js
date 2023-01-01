@@ -1,4 +1,16 @@
-function updateTIme() {
+function updateTime() {
+  // Tokyo
+  let tokyoElement = document.querySelector("#tokyo");
+  if (tokyoElement) {
+    let tokyoDateElement = tokyoElement.querySelector(".date");
+    let tokyoTimeElement = tokyoElement.querySelector(".time");
+    let tokyoTime = moment().tz("Asia/Tokyo");
+
+    tokyoDateElement.innerHTML = tokyoTime.format("MMMM	Do YYYY");
+    tokyoTimeElement.innerHTML = tokyoTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
   // Los Angeles
   let losAngelesElement = document.querySelector("#los-angeles");
   if (losAngelesElement) {
@@ -24,19 +36,6 @@ function updateTIme() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-
-  // Tokyo
-  let tokyoElement = document.querySelector("#tokyo");
-  if (tokyoElement) {
-    let tokyoDateElement = tokyoElement.querySelector(".date");
-    let tokyoTimeElement = tokyoElement.querySelector(".time");
-    let tokyoTime = moment().tz("Asia/Tokyo");
-
-    tokyoDateElement.innerHTML = tokyoTime.format("MMMM	Do YYYY");
-    tokyoTimeElement.innerHTML = tokyoTime.format(
-      "h:mm:ss [<small>]A[</small>]"
-    );
-  }
 }
 
 // Drop down
@@ -48,7 +47,8 @@ function updateCity(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = `<div class="city">
+  citiesElement.innerHTML = `
+  <div class="city">
     <div>
       <h2>${cityName}</h2>
       <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
@@ -57,7 +57,7 @@ function updateCity(event) {
     "A"
   )}</small></div>
   </div>
-  <a href="index.html">All Cities</a>
+  <a href="index.html">All cities</a>
   `;
 }
 
